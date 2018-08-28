@@ -6,6 +6,7 @@ html,
 body, .viewport {
   margin: 0px;
   padding: 0px;
+  /*max-height: 100%;*/
 }
 
 
@@ -22,6 +23,7 @@ again, to prevent the scroll bars
   height: 100vh;
   /*height: 100%;*/
   /*max-height: 100vh;*/
+  color: white;
 }
 
 /*top level*/
@@ -56,11 +58,79 @@ footer {
 article {
   /*     flex: 5;*/
   flex: 1;
-  background-color: aqua;
+  background-color: #333333;
+  color: #cccccc;
   overflow-y: auto;
+
 }
 
-aside,
-nav {
+aside
+{
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/ramp.jpg);
+  background-position: bottom left;
   flex: 1;
+  /*height: 100vh;*/
+}
+
+
+nav {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/spike.jpg);
+  flex: 1;
+}
+
+/**
+be careful when you add a padding to a child div
+scrollbars may appear
+so be sure to compensate that by reducing the height
+by the same number of pixels...
+if you are short even by just 1 pixel, scrollbars will appear
+ */
+
+/**
+vh functions as a percentage
+10vh is 10% of viewport
+However, browsers calculate the viewport size as the browser window,
+which includes the space for the scrollbar.
+if the page extends more than the height of the viewport - which will make
+the scrollbar appear - the width of the viewport will actually be
+larger than the width of the html element.
+
+ */
+.navContent2 {
+  /*background-color: #efefef;*/
+  flex: 1;
+  display: flex;
+
+  flex-direction: column;
+  /*height: 100vh;*/
+  /*height: calc(100vh - 10px);*/
+  height: calc(100% - 20px);
+  /*height: 100%;*/
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  /*padding: 10px;*/
+  /*align-items: flex-end;*/
+  justify-content: flex-end;
+  background-color: #333333;
+}
+
+.navContent {
+  /*background-color: #efefef;*/
+  flex: 1;
+  display: flex;
+
+  flex-direction: column;
+  /*height: 100vh;*/
+  height: calc(100vh - 10px);
+  /*height: calc(100% - 10px);*/
+  /*height: 100%;*/
+  padding-bottom: 10px;
+
+
+  /*padding: 10px;*/
+  /*align-items: flex-end;*/
+  justify-content: flex-end;
+  background-color: #333333;
+
 }
