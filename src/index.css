@@ -1,0 +1,66 @@
+/**
+this is important that we set this to zero
+this would prevent scroll bar appearing
+ */
+html,
+body, .viewport {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/**
+although all these entries are necessary
+the most important part is height: 100vh;
+this would limit the content to the size of the screen
+again, to prevent the scroll bars
+ */
+#root {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 100vh;
+  /*height: 100%;*/
+  /*max-height: 100vh;*/
+}
+
+/*top level*/
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+we min-height: 0; because in firefox
+the div scroll bar is not showing
+this is the fix for it
+ */
+.hbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 0;
+}
+
+/**
+we can actually remove the header/footer
+but most page designs use it
+ */
+header,
+footer {
+  height: 100px;
+  background-color: aliceblue;
+}
+
+article {
+  /*     flex: 5;*/
+  flex: 1;
+  background-color: aqua;
+  overflow-y: auto;
+}
+
+aside,
+nav {
+  flex: 1;
+}
